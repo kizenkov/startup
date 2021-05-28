@@ -1,0 +1,11 @@
+.emptyPage {
+    text-align: center;
+    margin-top: 33vh
+}
+
+.emptyPage p {
+    color: #808080;
+    font-size: 24px;
+    font-weight: 400;
+    padding: 10px;
+}

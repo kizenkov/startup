@@ -1,0 +1,34 @@
+.paginate {
+    text-align: right;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin: 0 70px 10px 0;
+    color: #808080;
+}
+
+.paginate span {
+    display: inline-grid;
+    margin: 6px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.paginate button {
+    color: #0064EB;
+    border: none;
+    background-color: #fff;
+    padding: 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.paginate .disabledButton {
+    color: #808080;
+}
+
+.paginate .currentPage {
+    color: #fff;
+    background-color: #0064EB;
+    border-radius: 3px;
+    padding: 1px 7px 3px 7px;
+}

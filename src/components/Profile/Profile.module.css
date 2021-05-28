@@ -1,0 +1,77 @@
+/*common*/
+.profile {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    grid-column-gap: 85px;
+}
+
+.profile a {
+    color: #0064EB;
+    text-decoration: none;
+}
+
+/*description*/
+.description {
+    padding-top: 39px;
+    padding-left: 57px;
+}
+
+.description .followers {
+    padding-top: 30px;
+}
+
+.description .followers span {
+    display: inline-flex;
+    align-items: center;
+}
+
+.description .icon1 img {
+    width: 20px;
+    height: 15px;
+    padding-right: 6px;
+}
+
+.description .icon2 img {
+    width: 30px;
+    height: 17px;
+    padding-right: 8px;
+}
+
+.description .icon1 {
+    float: right;
+}
+
+.description .icon2 {
+    float: left;
+}
+
+.description .avatar {
+    width: 280px;
+    height: 280px;
+    border-radius: 140px;
+}
+
+/*repositories*/
+.repositories .repos {
+    display: grid;
+    align-items: center;
+    height: 106px;
+    margin: 24px 56px 0 0;
+    padding-left: 32px;
+    background-color: aliceblue;
+    border-radius: 7px;
+}
+ .repositories h1 {
+    margin-bottom: 25px;
+}
+
+.repositories .repos .link {
+    font-weight: 500;
+    margin-top: 24px;
+    font-size: 1.5em;
+}
+
+.repositories .repos .linkDescription {
+    margin-bottom: 24px;
+    text-align: left;
+}
