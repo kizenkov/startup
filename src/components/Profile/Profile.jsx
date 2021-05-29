@@ -1,17 +1,17 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import s from './Profile.module.css';
 import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
+// import {withRouter} from 'react-router-dom';
 import {Paginate} from '../Paginate/Paginate';
 import {Description} from './Description';
 import {Repositories} from './Repositories';
-import {setRepositories, getUser} from '../../store/appReducer';
-import {compose} from 'redux';
+import {setRepositories} from '../../store/appReducer';
+// import {compose} from 'redux';
 
-const Profile = ({data, repos, currentPage, getUser, setRepositories, ...props}) => {
-    useEffect(() => {
-        getUser(props.match.params.name);
-    }, [])
+const Profile = ({data, repos, currentPage, setRepositories}) => {
+    // useEffect(() => {
+    //     getUser(props.match.params.name);
+    // }, [])
 
     if (!data) return null
     return <div className={s.profile}>
@@ -37,7 +37,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default compose(
-    withRouter,
-    connect(mapStateToProps, {setRepositories, getUser})
-)(Profile)
+export default connect(mapStateToProps, {setRepositories})(Profile)

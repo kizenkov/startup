@@ -3,13 +3,18 @@ import {Api} from '../api/api';
 const SET_DATA = 'app/SET_DATA';
 const SET_REPOS = 'app/SET_REPOS';
 const SET_IS_LOADING = 'app/SET_IS_LOADING';
+const SET_IS_REQUEST = 'app/SET_IS_REQUEST';
 const SET_CURRENT_PAGE = 'app/SET_CURRENT_PAGE';
+const SET_NOT_FOUND = 'app/SET_NOT_FOUND';
+const SET_DATA_NULL = 'app/SET_DATA_NULL';
 
 let initialState = {
     data: null,
     repos: [],
     currentPage: 1,
     isLoading: false,
+    isRequest: false,
+    notFound: false
 }
 
 export const appReducer = (state = initialState, action) => {
@@ -35,10 +40,25 @@ export const appReducer = (state = initialState, action) => {
                 ...state,
                 isLoading: action.isLoading
             }
+        case SET_IS_REQUEST:
+            return {
+                ...state,
+                isRequest: true
+            }
+        case SET_NOT_FOUND:
+            return {
+                ...state,
+                notFound: true
+            }
         case SET_CURRENT_PAGE:
             return {
                 ...state,
                 currentPage: action.page
+            }
+        case SET_DATA_NULL:
+            return {
+                ...state,
+                data: null
             }
         default:
             return state
@@ -48,19 +68,25 @@ export const appReducer = (state = initialState, action) => {
 export const setUser = (data) => ({type: SET_DATA, data})
 export const setRepos = (data) => ({type: SET_REPOS, data})
 export const setIsLoading = (isLoading) => ({type: SET_IS_LOADING, isLoading})
+export const setIsRequest = () => ({type: SET_IS_REQUEST})
+export const notFound = () => ({type: SET_NOT_FOUND})
 export const setCurrentPage = (page) => ({type: SET_CURRENT_PAGE, page})
+export const setDadaNull = () => ({type: SET_DATA_NULL})
 
-export const getUser = (name) => async (dispatch) => {
+export const getUserThunk = (name) => async (dispatch) => {
     try {
         dispatch(setIsLoading(true));
+        dispatch(setIsRequest());
         let responseUser = await Api.getUserApi(name);
         dispatch(setUser(responseUser.data));
         let responseRepos = await Api.getReposApi(name);
         dispatch(setRepos(responseRepos.data));
         await Promise.all([responseUser, responseRepos]);
     } catch {
-        window.open('/notFoundPage', '_blank');
-        window.history.back()
+        // window.open('/notFoundPage', '_blank');
+        // window.history.back()
+        dispatch(setDadaNull())
+        dispatch(notFound());
     } finally {
         dispatch(setIsLoading(false));
     }
