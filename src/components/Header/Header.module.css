@@ -1,7 +1,6 @@
 .header {
     display: inline-flex;
     background-color: #0064EB;
-    /* background-color: red; */
     align-items: center;
 }
 
@@ -18,8 +17,12 @@
     background-size: 14px;
     padding-left: 44px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-style: normal;
-    font-weight: normal;
     font-size: 13px;
     border: 1px solid #0064EB;
+}
+
+@media only screen and (max-width: 800px) {
+    .header input {
+        width: 55vw;
+    }
 }

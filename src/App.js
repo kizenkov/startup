@@ -11,13 +11,13 @@ import {Loader} from './components/Loader/Loader';
 const App = ({data, isRequest, isNotFound, isLoading}) => {
     return (
         <div className='app'>
-            <Header />
+            <Header/>
             {data && <Profile/>}
             {!isRequest && <FindPage/>}
             {isNotFound && <NotFoundPage/>}
             {isLoading && <Loader/>}
         </div>
-    );
+    )
 }
 
 const mapStateToProps = (state) => {

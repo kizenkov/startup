@@ -82,7 +82,6 @@ export const getUserThunk = (name) => async (dispatch) => {
         dispatch(setUser(responseUser.data));
         let responseRepos = await Api.getReposApi(name);
         dispatch(setRepos(responseRepos.data));
-        await Promise.all([responseUser, responseRepos]);
     } catch {
         dispatch(setDadaNull());
         dispatch(isNotFound(true));

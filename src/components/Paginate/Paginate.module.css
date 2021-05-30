@@ -2,8 +2,12 @@
     text-align: right;
     grid-column-start: 1;
     grid-column-end: 3;
-    margin: 0 70px 5px 0;
+    margin: 0 70px 5px 5px;
     color: #808080;
+}
+
+.paginate div {
+    display: inline;
 }
 
 .paginate span {
@@ -16,7 +20,7 @@
 .paginate button {
     color: #0064EB;
     border: none;
-    background-color: #fff;
+    background-color: #f8f8ff;
     padding: 15px;
     font-size: 1.5em;
     font-weight: bold;
@@ -27,8 +31,19 @@
 }
 
 .paginate .currentPage {
-    color: #fff;
+    color: #ffffff;
     background-color: #0064EB;
     border-radius: 3px;
     padding: 1px 7px 3px 7px;
+}
+
+@media only screen and (max-width: 600px) {
+    .paginate {
+        margin: 20px 50px;
+        text-align: center;
+    }
+
+    .paginate div {
+        display: block;
+    }
 }

@@ -33,38 +33,40 @@ export const Paginate = ({name, per_page, pagePortion, totalCountRepos, currentP
         className={page === currentPage ? s.currentPage : null}>{page}</span>)
 
     return <div className={s.paginate}>
+        <div>
+            {totalCountRepos > 1
+                ? (totalCountRepos === (page * per_page - (per_page - 1))
+                    ? null
+                    : (page * per_page - (per_page - 1)) + '-') : null}
+            {totalCountRepos > per_page
+                ? (page * per_page > totalCountRepos
+                    ? totalCountRepos
+                    : page * per_page)
+                : totalCountRepos}
+            {' of ' + totalCountRepos}
+            {totalCountRepos !== 1 ? ' items' : ' item'}
+        </div>
+        <div>
+            <button onClick={() => setNumberOfPagePortion(numberOfPagePortion - 1)}
+                    disabled={numberOfPagePortion === 1}
+                    className={numberOfPagePortion === 1 ? s.disabledButton : null}>‹
+            </button>
 
-        {totalCountRepos > 1
-            ? (totalCountRepos === (page * per_page - (per_page - 1))
-                ? null
-                : (page * per_page - (per_page - 1)) + '-') : null}
-        {totalCountRepos > per_page
-            ? (page * per_page > totalCountRepos
-                ? totalCountRepos
-                : page * per_page)
-            : totalCountRepos}
-        {' of ' + totalCountRepos}
-        {totalCountRepos !== 1 ? ' items' : ' item'}
+            {pageList}
 
-        <button onClick={() => setNumberOfPagePortion(numberOfPagePortion - 1)}
-                disabled={numberOfPagePortion === 1}
-                className={numberOfPagePortion === 1 ? s.disabledButton : null}>‹
-        </button>
-
-        {pageList}
-
-        {totalPage > pagePortion
-        && rightBorderOfPortion !== totalPage
-        && <>
-            <span>...</span>
-            <span onClick={() => setReposPage(totalPage)} className={totalPage === currentPage ? s.currentPage : null}>
+            {totalPage > pagePortion
+            && rightBorderOfPortion !== totalPage
+            && <>
+                <span>...</span>
+                <span onClick={() => setReposPage(totalPage)}
+                      className={totalPage === currentPage ? s.currentPage : null}>
                     {totalPage}</span>
-        </>}
+            </>}
 
-        <button onClick={() => setNumberOfPagePortion(numberOfPagePortion + 1)}
-                disabled={numberOfPagePortion === Math.ceil(totalPage / pagePortion)}
-                className={numberOfPagePortion === Math.ceil(totalPage / pagePortion) ? s.disabledButton : null}>›
-        </button>
-
+            <button onClick={() => setNumberOfPagePortion(numberOfPagePortion + 1)}
+                    disabled={numberOfPagePortion === Math.ceil(totalPage / pagePortion)}
+                    className={numberOfPagePortion === Math.ceil(totalPage / pagePortion) ? s.disabledButton : null}>›
+            </button>
+        </div>
     </div>
 }
