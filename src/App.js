@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-// import {Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Header from './components/Header/Header';
 import Profile from './components/Profile/Profile';
@@ -8,15 +7,14 @@ import {FindPage} from './components/EmptyPages/FindPage';
 import {NotFoundPage} from './components/EmptyPages/NotFoundPage';
 import {Loader} from './components/Loader/Loader';
 
-const App = ({data, isLoading, isRequest, notFound}) => {
+
+const App = ({data, isRequest, isNotFound, isLoading}) => {
     return (
         <div className='app'>
-            <Header/>
-            {/* <Route exact path='/' render={() => <FindPage/>}/>
-            <Route path='/notFoundPage' render={() => <NotFoundPage/>}/> */}
-            <Profile/>
+            <Header />
+            {data && <Profile/>}
             {!isRequest && <FindPage/>}
-            {notFound && <NotFoundPage/>}
+            {isNotFound && <NotFoundPage/>}
             {isLoading && <Loader/>}
         </div>
     );
@@ -25,9 +23,9 @@ const App = ({data, isLoading, isRequest, notFound}) => {
 const mapStateToProps = (state) => {
     return {
         data: state.app.data,
-        isLoading: state.app.isLoading,
         isRequest: state.app.isRequest,
-        notFound: state.app.notFound
+        isNotFound: state.app.isNotFound,
+        isLoading: state.app.isLoading
     }
 }
 

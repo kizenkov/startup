@@ -5,7 +5,7 @@ const SET_REPOS = 'app/SET_REPOS';
 const SET_IS_LOADING = 'app/SET_IS_LOADING';
 const SET_IS_REQUEST = 'app/SET_IS_REQUEST';
 const SET_CURRENT_PAGE = 'app/SET_CURRENT_PAGE';
-const SET_NOT_FOUND = 'app/SET_NOT_FOUND';
+const SET_IS_NOT_FOUND = 'app/SET_IS_NOT_FOUND';
 const SET_DATA_NULL = 'app/SET_DATA_NULL';
 
 let initialState = {
@@ -14,7 +14,7 @@ let initialState = {
     currentPage: 1,
     isLoading: false,
     isRequest: false,
-    notFound: false
+    isNotFound: false
 }
 
 export const appReducer = (state = initialState, action) => {
@@ -45,10 +45,10 @@ export const appReducer = (state = initialState, action) => {
                 ...state,
                 isRequest: true
             }
-        case SET_NOT_FOUND:
+        case SET_IS_NOT_FOUND:
             return {
                 ...state,
-                notFound: true
+                isNotFound: action.isNotFound
             }
         case SET_CURRENT_PAGE:
             return {
@@ -69,13 +69,14 @@ export const setUser = (data) => ({type: SET_DATA, data})
 export const setRepos = (data) => ({type: SET_REPOS, data})
 export const setIsLoading = (isLoading) => ({type: SET_IS_LOADING, isLoading})
 export const setIsRequest = () => ({type: SET_IS_REQUEST})
-export const notFound = () => ({type: SET_NOT_FOUND})
+export const isNotFound = (isNotFound) => ({type: SET_IS_NOT_FOUND, isNotFound})
 export const setCurrentPage = (page) => ({type: SET_CURRENT_PAGE, page})
 export const setDadaNull = () => ({type: SET_DATA_NULL})
 
 export const getUserThunk = (name) => async (dispatch) => {
     try {
         dispatch(setIsLoading(true));
+        dispatch(isNotFound(false));
         dispatch(setIsRequest());
         let responseUser = await Api.getUserApi(name);
         dispatch(setUser(responseUser.data));
@@ -83,10 +84,8 @@ export const getUserThunk = (name) => async (dispatch) => {
         dispatch(setRepos(responseRepos.data));
         await Promise.all([responseUser, responseRepos]);
     } catch {
-        // window.open('/notFoundPage', '_blank');
-        // window.history.back()
-        dispatch(setDadaNull())
-        dispatch(notFound());
+        dispatch(setDadaNull());
+        dispatch(isNotFound(true));
     } finally {
         dispatch(setIsLoading(false));
     }

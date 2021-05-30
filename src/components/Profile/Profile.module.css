@@ -1,4 +1,7 @@
 /*common*/
+
+
+
 .profile {
     display: grid;
     grid-template-columns: 350px 1fr;
@@ -55,8 +58,8 @@
 .repositories .repos {
     display: grid;
     align-items: center;
-    height: 106px;
-    margin: 24px 56px 0 0;
+    min-height: 95px;
+    margin: 18px 56px 0 0;
     padding-left: 32px;
     background-color: aliceblue;
     border-radius: 7px;
@@ -75,3 +78,7 @@
     margin-bottom: 24px;
     text-align: left;
 }
+
+@media only screen and (max-widtn: 560px) {
+    .profile {grid-template-columns: 1fr;}
+  }

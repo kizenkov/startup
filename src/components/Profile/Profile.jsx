@@ -1,19 +1,12 @@
 import React from 'react';
 import s from './Profile.module.css';
 import {connect} from 'react-redux';
-// import {withRouter} from 'react-router-dom';
 import {Paginate} from '../Paginate/Paginate';
 import {Description} from './Description';
 import {Repositories} from './Repositories';
 import {setRepositories} from '../../store/appReducer';
-// import {compose} from 'redux';
 
 const Profile = ({data, repos, currentPage, setRepositories}) => {
-    // useEffect(() => {
-    //     getUser(props.match.params.name);
-    // }, [])
-
-    if (!data) return null
     return <div className={s.profile}>
         <Description data={data}/>
         <Repositories data={data}

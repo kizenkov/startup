@@ -2,3 +2,7 @@
   display: grid;
   grid-template-rows: 72px 1fr;
 }
+
+@media only screen and (max-widtn: 320px) {
+  body {background-color: red;}
+}

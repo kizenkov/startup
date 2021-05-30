@@ -11,7 +11,7 @@
 }
 
 .header input {
-    width: 500px;
+    width: 35vw;
     height: 40px;
     border-radius: 6px;
     background: white url(./../../images/findicon.png) 20px 15px no-repeat;
