@@ -1,4 +1,6 @@
 import {Api} from '../api/api';
+import { polyfill } from 'es6-promise';
+polyfill();
 
 const SET_DATA = 'app/SET_DATA';
 const SET_REPOS = 'app/SET_REPOS';
