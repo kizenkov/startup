@@ -2,6 +2,7 @@
 .profile {
     display: grid;
     grid-template-columns: 380px 1fr;
+    -ms-grid-columns: 380px 1fr;
     grid-column-gap: 55px;
 }
 
