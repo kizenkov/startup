@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.3d0a9374.chunk.css",
-    "main.js": "/static/js/main.2be99683.chunk.js",
-    "main.js.map": "/static/js/main.2be99683.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.9c216477.js",
-    "runtime-main.js.map": "/static/js/runtime-main.9c216477.js.map",
-    "static/js/2.3937ca2d.chunk.js": "/static/js/2.3937ca2d.chunk.js",
-    "static/js/2.3937ca2d.chunk.js.map": "/static/js/2.3937ca2d.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.3d0a9374.chunk.css.map": "/static/css/main.3d0a9374.chunk.css.map",
-    "static/js/2.3937ca2d.chunk.js.LICENSE.txt": "/static/js/2.3937ca2d.chunk.js.LICENSE.txt"
+    "main.css": "/startup-summer-2021/static/css/main.14da2b01.chunk.css",
+    "main.js": "/startup-summer-2021/static/js/main.0002db0b.chunk.js",
+    "main.js.map": "/startup-summer-2021/static/js/main.0002db0b.chunk.js.map",
+    "runtime-main.js": "/startup-summer-2021/static/js/runtime-main.a8ce0b9a.js",
+    "runtime-main.js.map": "/startup-summer-2021/static/js/runtime-main.a8ce0b9a.js.map",
+    "static/js/2.989e4aa7.chunk.js": "/startup-summer-2021/static/js/2.989e4aa7.chunk.js",
+    "static/js/2.989e4aa7.chunk.js.map": "/startup-summer-2021/static/js/2.989e4aa7.chunk.js.map",
+    "index.html": "/startup-summer-2021/index.html",
+    "static/css/main.14da2b01.chunk.css.map": "/startup-summer-2021/static/css/main.14da2b01.chunk.css.map",
+    "static/js/2.989e4aa7.chunk.js.LICENSE.txt": "/startup-summer-2021/static/js/2.989e4aa7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.9c216477.js",
-    "static/js/2.3937ca2d.chunk.js",
-    "static/css/main.3d0a9374.chunk.css",
-    "static/js/main.2be99683.chunk.js"
+    "static/js/runtime-main.a8ce0b9a.js",
+    "static/js/2.989e4aa7.chunk.js",
+    "static/css/main.14da2b01.chunk.css",
+    "static/js/main.0002db0b.chunk.js"
   ]
 }
