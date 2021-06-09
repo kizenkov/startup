@@ -67,13 +67,13 @@ export const appReducer = (state = initialState, action) => {
     }
 }
 
-export const setUser = (data) => ({type: SET_DATA, data})
-export const setRepos = (data) => ({type: SET_REPOS, data})
-export const setIsLoading = (isLoading) => ({type: SET_IS_LOADING, isLoading})
-export const setIsRequest = () => ({type: SET_IS_REQUEST})
-export const isNotFound = (isNotFound) => ({type: SET_IS_NOT_FOUND, isNotFound})
-export const setCurrentPage = (page) => ({type: SET_CURRENT_PAGE, page})
-export const setDadaNull = () => ({type: SET_DATA_NULL})
+const setUser = (data) => ({type: SET_DATA, data})
+const setRepos = (data) => ({type: SET_REPOS, data})
+const setIsLoading = (isLoading) => ({type: SET_IS_LOADING, isLoading})
+const setIsRequest = () => ({type: SET_IS_REQUEST})
+const isNotFound = (isNotFound) => ({type: SET_IS_NOT_FOUND, isNotFound})
+const setCurrentPage = (page) => ({type: SET_CURRENT_PAGE, page})
+const setDadaNull = () => ({type: SET_DATA_NULL})
 
 export const getUserThunk = (name) => async (dispatch) => {
     try {

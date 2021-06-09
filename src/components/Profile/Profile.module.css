@@ -85,7 +85,7 @@
     text-align: left;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 800px) and (min-width: 320px) {
     .profile {
         display: block
     }
